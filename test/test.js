@@ -399,7 +399,7 @@ describe("Colour", function() {
 		});
 	});
 
-	describe("unpack", function() {
+	describe("static unpack", function() {
 		it("should return null for numbers that are not integers", function() {
 			expect(Colour.unpack("door.stuck")).to.equal(null);
 		});
@@ -429,7 +429,7 @@ describe("Colour", function() {
 		});
 	});
 
-	describe("deserialize", function() {
+	describe("static deserialize", function() {
 		it("should return null for non-buffer values", function() {
 			expect(Colour.deserialize(NaN)).to.equal(null);
 		});
@@ -508,7 +508,7 @@ describe("Colour", function() {
 		});
 	});
 
-	describe("isColour", function() {
+	describe("static isColour", function() {
 		it("should return false for non-colour objects", function() {
 			expect(Colour.isColour(null)).to.equal(false);
 			expect(Colour.isColour({ r: 4, g: 2, b: 0, a: 0 })).to.equal(false);
