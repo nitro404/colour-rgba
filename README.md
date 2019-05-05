@@ -17,7 +17,7 @@ var Colour = require("colour-rgba");
 var myColour = new Colour(86, 75, 30, 99);
 
 // or use a pre-defined colour
-var red = Colour.RED;
+var red = Colour.LimeGreen;
 
 // convert a colour to an array excluding the alpha channel
 var colourArray = myColour.toArray(false);
