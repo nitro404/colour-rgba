@@ -2,7 +2,6 @@
 
 const utilities = require("extra-utilities");
 const extendedMath = require("extended-math");
-const ByteBuffer = require("bytebuffer");
 
 class Colour {
 	constructor(r, g, b, a) {
@@ -157,10 +156,6 @@ class Colour {
 	}
 
 	static deserialize(buffer) {
-		if(ByteBuffer.isByteBuffer(buffer)) {
-			buffer = buffer.toBuffer();
-		}
-
 		if(!Buffer.isBuffer(buffer)) {
 			return null;
 		}
@@ -189,20 +184,17 @@ class Colour {
 	serialize(includeAlpha) {
 		includeAlpha = utilities.parseBoolean(includeAlpha, true);
 
-		let paletteByteBuffer = new ByteBuffer(includeAlpha ? 4 : 3);
-		paletteByteBuffer.order(true);
+		let paletteBuffer = Buffer.alloc(includeAlpha ? 4 : 3);
 
-		paletteByteBuffer.writeUint8(this.r);
-		paletteByteBuffer.writeUint8(this.g);
-		paletteByteBuffer.writeUint8(this.b);
+		paletteBuffer.writeUInt8(this.r, 0);
+		paletteBuffer.writeUInt8(this.g, 1);
+		paletteBuffer.writeUInt8(this.b, 2);
 
 		if(includeAlpha) {
-			paletteByteBuffer.writeUint8(this.a);
+			paletteBuffer.writeUInt8(this.a, 3);
 		}
 
-		paletteByteBuffer.flip();
-
-		return paletteByteBuffer.toBuffer();
+		return paletteBuffer;
 	}
 
 	equals(value, compareAlpha) {

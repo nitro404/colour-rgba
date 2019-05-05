@@ -1,7 +1,6 @@
 "use strict";
 
 const utilities = require("extra-utilities");
-const ByteBuffer = require("bytebuffer");
 const Colour = require("../src/colour.js");
 const chai = require("chai");
 const expect = chai.expect;
@@ -437,14 +436,6 @@ describe("Colour", function() {
 
 		it("should deserialize colour objects from valid buffers", function() {
 			expect(Colour.deserialize(Buffer.from("NICE"))).to.deep.equal(new Colour(78, 73, 67, 69));
-		});
-
-		it("should deserialize colour objects from valid byte buffers", function() {
-			let byteBuffer = new ByteBuffer();
-			byteBuffer.writeString("HATS");
-			byteBuffer.flip();
-
-			expect(Colour.deserialize(byteBuffer)).to.deep.equal(new Colour(72, 65, 84, 83));
 		});
 
 		it("should deserialize colour objects from buffers with different lengths", function() {
