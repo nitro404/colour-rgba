@@ -11,28 +11,28 @@ A module for creating RGBA Colour objects and manipulating, un/packing and de/se
 ## Usage
 
 ```javascript
-var Colour = require("colour-rgba");
+const Colour = require("colour-rgba");
 
 // create a new colour
-var myColour = new Colour(86, 75, 30, 99);
+const myColour = new Colour(86, 75, 30, 99);
 
 // or use a pre-defined colour
-var red = Colour.LimeGreen;
+const red = Colour.LimeGreen;
 
 // convert a colour to an array excluding the alpha channel
-var colourArray = myColour.toArray(false);
+const colourArray = myColour.toArray(false);
 
 // pack a colour object into a 32-bit number
-var packedNumber = myColour.pack();
+const packedNumber = myColour.pack();
 
 // unpack a colour from a 32-bit number
-var unpackedColour = Colour.unpack(packedNumber);
+const unpackedColour = Colour.unpack(packedNumber);
 
 // serialize a colour object into a buffer and include the alpha channel
-var serializedColour = myColour.serialize(true);
+const serializedColour = myColour.serialize(true);
 
 // de-serialize a colour object from a buffer
-var deserializedColour = Colour.deserialize(serializedColour);
+const deserializedColour = Colour.deserialize(serializedColour);
 ```
 
 ## Installation
