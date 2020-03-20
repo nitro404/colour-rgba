@@ -1,6 +1,6 @@
 {
   "name": "colour-rgba",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A module for creating RGBA Colour objects and manipulating, un/packing and de/serializing them.",
   "main": "src/colour.js",
   "scripts": {
